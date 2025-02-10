@@ -1,78 +1,106 @@
 body {
     font-family: 'Tajawal', sans-serif;
     background-color: #f8f9fa;
-    margin: 0;
+    margin: 30px;
     padding: 20px;
     text-align: right;
 }
-
 .container {
-    max-width: 900px;
+    max-width: 2000px;
     background: white;
     padding: 20px;
     margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
-
 table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 th, td {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    vertical-align: top;
+    text-align: right;
 }
 
-th {
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; 
+    }
+
+    tr {
+        margin-bottom: 5px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 10px;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        text-align: left;
+    }
+}
+
+hr {
+    border: 1px solid #ddd;
+}
+
+.header {
     text-align: right;
-    font-size: 18px;
+    font-size: 22px;
     color: #01527a;
-    font-weight: bold;
+    padding: 0px 0px 20px 0px;
 }
-
-td {
+.label {
     text-align: right;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.section-title {
-    font-weight: bold;
     font-size: 20px;
     color: #01527a;
-    padding: 10px 0;
+    padding: 10px 0px 10px 0px;
+    font-weight: normal;
 }
-
 .sub-label {
     font-size: 14px;
     color: #636364;
+    font-weight: normal;
 }
-
-.bold-text {
+.text {
     font-weight: bold;
     font-size: 15px;
     color: black;
+    padding: 0px 0px 0px 0px;
 }
-
 .button-container {
     text-align: left;
     margin-top: 20px;
 }
-
 button {
     background-color: transparent;
     color: #007bff;
     padding: 10px 20px;
-    border: 2px solid #007bff;
+    border: 1px solid #007bff;
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
 }
-
 button:hover {
     background-color: #007bff;
     color: white;
